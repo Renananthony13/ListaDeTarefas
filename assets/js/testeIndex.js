@@ -85,9 +85,11 @@ class Lista {
         const save = this.salvaItems
 
         this.form.onsubmit = function(e) {
+            e.preventDefault()
+
             const input = document.querySelector('input')
             if(input.value == '') return false
-            e.preventDefault()
+            
 
             criadr(input.value)
             save()
