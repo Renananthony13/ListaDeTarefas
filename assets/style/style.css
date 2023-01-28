@@ -1,0 +1,226 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* regulando posicionamento da imagem de fundo*/
+body {
+    z-index: 0;
+    overflow: hidden;
+}
+
+#page {
+    background-image: url('../img/image-fundo.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+/* conteudo da pagina */
+main {
+    width: 50vw;
+    height: 80vh;
+    padding-bottom: 1rem;
+
+    background-color: rgba(251, 247, 247, 0.173);
+    backdrop-filter: blur( 2px );
+    -webkit-backdrop-filter: blur( 1px );
+    border-radius: 15px;
+    border: 1px solid rgba(8, 8, 8, 0.033);
+    box-shadow: 0 8px 32px 0 rgba(2, 3, 26, 0.37);
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* parte opcoes */
+main form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.299);
+    margin-bottom: 1rem;
+}
+form input {
+    width: 50%;
+    height: 1rem;
+    border-radius: 15px;
+    padding: 1rem;
+    border-style: none;
+
+    margin-bottom: 1.5rem;
+}
+form input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+
+/* parte das listas*/
+main .lista {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    flex-direction: column;
+
+    overflow-y: scroll;
+}
+.lista::-webkit-scrollbar {
+    width: 0.5rem;
+    /* border: 1px solid black; */
+}
+.lista::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.437);
+    border-radius: 15px;
+}
+
+.lista ul {
+    width: 80%;
+    padding: 0rem 0.5rem 0rem 1rem;
+    margin-bottom: 1rem;
+
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+li {
+    height: 2rem;
+    background-color: rgba(59, 58, 58, 0.187);
+}
+
+.list-style {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 0.5rem 0rem 1rem;
+    margin-bottom: 1rem;
+}
+
+/* style buttons*/
+
+.div-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.div-buttons button {
+    margin-left: 0.6rem;
+
+}
+
+.btn-li {
+    appearance: none;
+    -webkit-appearance: none;
+   
+    background-color: rgba(0, 0, 0, 0.085);
+    border: 1px solid rgba(0, 0, 0, 0.779); 
+
+    padding: 0.6rem;
+    z-index: 1000;
+}
+
+.btn-li:checked {
+    background-color: rgba(13, 172, 18, 0.071); 
+    background-image: url('../img/simbolo-correto.png');
+    background-size: cover;
+    /* border: 1px solid rgba(0, 0, 0, 0.779);  */
+    /* border: none; */
+    padding: 0.6rem;
+}
+
+.btn-li_do {
+   
+}
+
+
+
+/*buttons de cima*/
+
+.buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div button + button {
+    margin-left: 2rem;
+}
+
+.buttons button {
+    width: 40%;
+    padding: 0.3rem;
+}
+
+
+
+/* teste*/
+.anima-li {
+    opacity: .9;
+    scale: .99;
+    transition: all .6s;
+    animation: testea 1s infinite alternate;
+}
+@keyframes testea {
+    from {
+        transform: translateX(10px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.btn-del {
+    background-image: url('../img/excluir.png');
+    background-color: rgba(5, 5, 5, 0); 
+    background-size: cover;
+    border: 1px solid rgba(0, 0, 0, 0.779); 
+    /* border: none; */
+    padding: 0.6rem;
+
+}
+
+.none {
+    display: none;
+}
+
+
+/* responsividade*/
+
+/*Tablets*/
+
+@media (min-width: 750px) and (max-width: 950px) {
+    main {
+        width: 70vw;
+    }
+}
+
+@media (max-width: 749px) {
+    main {
+        width: 85vw;
+    }
+
+    .lista ul {
+        width: 100%;
+    }
+}
