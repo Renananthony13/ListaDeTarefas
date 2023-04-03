@@ -10,6 +10,8 @@ class Lista {
         // this.salvaItems()
 
         this.init_items()
+        this.infosTamanhoLista()
+        this.removeLista()
     }
 
 
@@ -26,7 +28,7 @@ class Lista {
         // console.log(teste)
 
         for(let i of teste) {
-            console.log(i)
+            // console.log(i)
             this.criaElemento(i.text, i.active)
         }
 
@@ -81,8 +83,9 @@ class Lista {
 
 
     criaLista(val) {
-        const criadr = this.criaElemento
-        const save = this.salvaItems
+        const criadr = this.criaElemento;
+        const save = this.salvaItems;
+        const attLengthItems = this.infosTamanhoLista;
 
         this.form.onsubmit = function(e) {
             e.preventDefault()
@@ -108,6 +111,8 @@ class Lista {
 
             console.log(list)
             localStorage.setItem('cr', list)
+            attLengthItems()
+
 
             // localStorage.setItem('btns', JSON.stringify(nodARR))
 
@@ -122,7 +127,8 @@ class Lista {
             const dado = localStorage.getItem('tarefa')
             // console.log(valor)
 
-            if(input.value > 58) return alert('Limite exedido de caracteres.')
+            if(input.value.length > 58) return alert('Limite exedido de caracteres.')
+            console.log(input.value.length)
            
 
             // const li = ul.querySelector('li').cloneNode(true)
@@ -164,6 +170,7 @@ class Lista {
         const criaElemento = this.criaElemento
         const save = this.salvaItems
         const check_save = this.salvaCheck
+        const attLengthItems = this.infosTamanhoLista;
 
         this.ul.onclick = function(e) {
                 if(e.target.classList.contains('btn-del')) {
@@ -171,6 +178,9 @@ class Lista {
                     let div = e.target.parentNode
                     div.parentNode.remove()
                     save()
+                    attLengthItems()
+
+                    
                 }
                 if(e.target.classList.contains('btn-li')) {
                     console.log('botao 2')
@@ -180,10 +190,47 @@ class Lista {
             }
     }
 
+
+    
+
+    removeLista() {
+        const rmvTudo = document.querySelector('.removeTodos')
+        const save = this.salvaItems
+        const attLengthItems = this.infosTamanhoLista;
+
+        rmvTudo.addEventListener('click', function() {
+            document.querySelectorAll('.list-style').forEach((e) => {
+                // console.log(e)
+                e.remove()
+                save()
+                attLengthItems()
+            })
+            
+        })
+
+    }
+
+    infosTamanhoLista() {
+        const tamanhoLista = document.querySelector('.items')
+        const infoTamanhoLista = document.querySelector('.infosLenght')
+        const rmvTudo = document.querySelector('.removeTodos')
+        // const save = this.salvaItems
+
+        infoTamanhoLista.textContent = `${tamanhoLista.children.length} items left`    
+
+        // rmvTudo.addEventListener('click', function() {
+        //     document.querySelectorAll('.list-style').forEach((e) => {
+        //         // console.log(e)
+        //         e.remove()
+        //         save()
+        //     })
+            
+        // })
+      
+    }
+
+
 }
-
-
-
 
 
 
