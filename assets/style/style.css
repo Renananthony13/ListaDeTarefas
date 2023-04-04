@@ -213,6 +213,9 @@ li {
 
 .removeTodos {
     cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: var(--label-color);
 }
 
 
@@ -332,6 +335,8 @@ div .btn-add {
 @media (max-width: 540px) {
     main form {
         flex-direction: column;
+
+        padding: 1.5rem 1rem;
     }
 
     div .btn-add {
@@ -342,6 +347,25 @@ div .btn-add {
     }
 
     main #container {
+        max-width: 95vw;
+
+        margin: 4rem auto
+    }
+
+    .lista ul {
+        padding: 1rem;
+    }
+
+    form input[type="text"] {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 370px) {
+    main #container {
         max-width: 100vw;
+        margin: 3rem auto;
+
+        height: 90%;
     }
 }
